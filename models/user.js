@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
-    name:{type:String,required:[true,'Name is required']},
-    lastName:{type:String,required:[true,'Last name is required']},
-    age:{type:Number,required:[true,'Age is required']},
-    nationality:{type:String,required:[true,'Nationality is required']},
-    dateOfBirth:{type:Date,required:[true,'Date is required']},
-    isEmployed:Boolean,
+    first_name:{type:String,required:[true,'First Name is required']},
+    last_name:{type:String,required:[true,'Last Name is required']},
+    date_of_birth:{type:Date,required:[true,'Date Of Birth is required']},
+    school:{type:String,required:[true,'Schhol is required']},
 },{timestamps:true});
 
 const user = mongoose.model('users',userSchema);

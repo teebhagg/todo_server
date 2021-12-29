@@ -12,22 +12,28 @@ function getAllInfo(req,res){
     })
 };
 
-function getInfoById(req,res){
-    // const {id} = req.params;
-    const name = req.params.name;
-    user.find({name:name})
-    .then(
-        function (data) {
-            res.status(200).json({sucess:true, message:'Info retrived', data})
-        }
-    ).catch(
-        function (error) {
-        res.status(404).json({sucess:false, message:'Info not retrived'+error.message})
-    })
-};
+
 
 function postInfo(req,res){
-    user.create(req.body)
+    user.create({
+        "first_name":"Abena",
+        "last_name":"Bankushishi",
+        "date_of_birth": 1999-03-13,
+        "school":"Hambrigde"
+
+    },
+    {
+        "first_name":"Benedicta",
+        "last_name":"Sprinkles",
+        "date_of_birth":1995-11-09,
+        "school":"Lemonade High School"
+    },
+    {
+        "first_name":"Janet",
+        "last_name":"Hubert",
+        "date_of_birth":1985-08-11,
+        "school":"Talin University"
+    })
     .then(
         function (data) {
             res.status(200).json({sucess:true, message:'Info created', data})
@@ -38,31 +44,6 @@ function postInfo(req,res){
     })
 };
 
-function deleteInfoById(req,res){
-    const {id} = req.params;
-    user.findByIdAndDelete(id)
-    .then(
-        function (data) {
-            res.status(200).json({sucess:true, message:'Info deleted: ', data})
-        }
-    ).catch(
-        function (error) {
-        res.status(404).json({sucess:false, message:'Info not deleted: '+error.message})
-    })
-};
 
-function updateInfoById(req,res){
-    const {id} = req.params;
-    const {isEmployed} = req.body;
-    user.findByIdAndUpdate(id, {isEmployed:isEmployed})
-    .then(
-        function (data) {
-            res.status(200).json({sucess:true, message:'Info updated', data})
-        }
-    ).catch(
-        function (error) {
-        res.status(404).json({sucess:false, message:'Info not updated: '+error.message})
-    })
-};
 
-module.exports = {getAllInfo,getInfoById,postInfo,deleteInfoById,updateInfoById};
+module.exports = {getAllInfo,postInfo};
